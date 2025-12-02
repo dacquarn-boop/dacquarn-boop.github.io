@@ -6,7 +6,7 @@ body {
     color: #333;
 }
 
-/* HERO */
+/* HERO SECTION */
 .hero {
     background: linear-gradient(to bottom right, #0077cc, #005fa3);
     color: white;
@@ -48,9 +48,10 @@ body {
 h2 {
     border-left: 4px solid #0077cc;
     padding-left: 10px;
+    margin-bottom: 20px;
 }
 
-/* SKILLS */
+/* SKILLS GRID */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
@@ -79,6 +80,10 @@ h2 {
     border: 1px solid #dcdcdc;
     text-align: left;
     box-shadow: 0px 2px 6px rgba(0,0,0,0.06);
+}
+
+.project-card h3 {
+    margin-top: 0;
 }
 
 .card-btn {
@@ -113,12 +118,27 @@ footer {
 .fade-in {
     opacity: 0;
     transform: translateY(15px);
-    animation: fadeIn 0.8s ease forwards;
+    transition: all 0.8s ease;
 }
 
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
+/* When the section becomes visible */
+.fade-in-visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 600px) {
+    .hero-content h1 {
+        font-size: 32px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+    .section {
+        margin: 20px;
+        padding: 20px;
     }
 }
