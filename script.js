@@ -1,17 +1,12 @@
-let slides = document.querySelectorAll(".slide");
-let index = 0;
-
-function showSlide(i) {
-    slides.forEach(slide => slide.classList.remove("active"));
-    slides[i].classList.add("active");
-}
-
-document.getElementById("prevBtn").addEventListener("click", function () {
-    index = (index === 0) ? slides.length - 1 : index - 1;
-    showSlide(index);
+// Trigger fade-in animation when sections enter the screen
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("fade-in-visible");
+        }
+    });
 });
 
-document.getElementById("nextBtn").addEventListener("click", function () {
-    index = (index === slides.length - 1) ? 0 : index + 1;
-    showSlide(index);
+document.querySelectorAll(".fade-in").forEach((section) => {
+    observer.observe(section);
 });
